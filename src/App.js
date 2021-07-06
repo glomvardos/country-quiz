@@ -1,5 +1,5 @@
-import QuizContent from './components/QuizContent/QuizContent'
-import Layout from './components/Layout/Layout'
+import Layout from './containers/Layout/Layout'
+import QuizContent from './containers/QuizContent/QuizContent'
 
 const App = () => {
   return (
