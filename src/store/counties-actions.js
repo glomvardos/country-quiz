@@ -1,10 +1,20 @@
 import { countriesActions } from './countries-slice'
+import { loadingActions } from './loading-slice'
 
 export const fetchCountries = () => {
   return async dispatch => {
-    const response = await fetch('https://restcountries.eu/rest/v2/all')
-    const data = await response.json()
+    try {
+      const response = await fetch('https://restcountries.eu/rest/v2/region/europe')
 
-    dispatch(countriesActions.getCountries(data))
+      if (!response.ok) {
+        throw new Error('Something went wrong.')
+      }
+      const data = await response.json()
+
+      dispatch(countriesActions.getCountries(data))
+      dispatch(loadingActions.setIsNotLoading())
+    } catch (err) {
+      dispatch(loadingActions.setIsNotLoading())
+    }
   }
 }
