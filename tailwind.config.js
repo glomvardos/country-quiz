@@ -10,6 +10,7 @@ module.exports = {
         blueTitle: '#2F527B',
         lightPurple: '#6066D0',
         orangeHover: '#F9A826',
+        correctAnswer: '#60BF88',
       },
       width: {
         96: '29rem',

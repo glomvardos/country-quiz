@@ -10,16 +10,16 @@ const countriesSlice = createSlice({
   },
   reducers: {
     getCountries(state, actions) {
-      const allCountires = actions.payload
-      const transformedCountriess = allCountires.map(country => ({
+      const allCountries = actions.payload
+      const transformedCountries = allCountries.map(country => ({
         name: country.name,
         capital: country.capital,
         flag: country.flag,
       }))
-      const randomArray = shuffleArray(transformedCountriess)
+      const randomCountries = shuffleArray(transformedCountries)
 
-      state.selectedCountries = shuffleArray(randomArray.slice(0, 4))
-      state.countries = randomArray
+      state.selectedCountries = shuffleArray(randomCountries.slice(0, 4))
+      state.countries = randomCountries
     },
     arrayIndexHanlder(state) {
       state.countriesArrayIndex++
@@ -30,8 +30,8 @@ const countriesSlice = createSlice({
       )
 
       const randomCountries = shuffleArray(copiedCountries).slice(0, 3)
-      const currentCounty = state.countries[state.countriesArrayIndex]
-      const newSelectedCountries = shuffleArray([currentCounty, ...randomCountries])
+      const currentCountry = state.countries[state.countriesArrayIndex]
+      const newSelectedCountries = shuffleArray([currentCountry, ...randomCountries])
 
       state.selectedCountries = newSelectedCountries
     },

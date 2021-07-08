@@ -4,11 +4,15 @@ const quizSlice = createSlice({
   name: 'questions',
   initialState: {
     randomQuestion: Math.floor(Math.random() * 2),
-    isCorrect: false,
+    nextQuestion: false,
+    score: 0,
   },
   reducers: {
     setRandomQuestion(state) {
       state.randomQuestion = Math.floor(Math.random() * 2)
+    },
+    setNextQuestion(state) {
+      state.nextQuestion = !state.nextQuestion
     },
   },
 })

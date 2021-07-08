@@ -18,7 +18,7 @@ const QuizContent = () => {
   const isLoading = useSelector(state => state.loading.isLoading)
 
   const randomNum = useSelector(state => state.quiz.randomQuestion)
-  const isCorrect = useSelector(state => state.quiz.isCorrect)
+  const nextQuestion = useSelector(state => state.quiz.nextQuestion)
 
   const allCountries = useSelector(state => state.countries.countries)
   const selectedCountries = useSelector(state => state.countries.selectedCountries)
@@ -28,20 +28,18 @@ const QuizContent = () => {
     dispatch(fetchCountries())
   }, [dispatch])
 
-  console.log(index)
   console.log(allCountries)
   console.log(selectedCountries)
 
   const nextQuestionHandler = () => {
     dispatch(countriesActions.arrayIndexHanlder())
-    dispatch(quizActions.setRandomQuestion())
     dispatch(countriesActions.nextCountryHandler())
+    dispatch(quizActions.setRandomQuestion())
+    dispatch(quizActions.setNextQuestion())
   }
 
-  const correctAnswerHanlder = country => (allCountries[index].name === country ? true : false)
-
   const displayAnswers = selectedCountries.map((country, i) => (
-    <Answer key={i} i={i} country={country.name} onClickHandler={correctAnswerHanlder} />
+    <Answer key={i} i={i} allCountries={allCountries[index]} country={country.name} />
   ))
   return (
     <div className='relative max-w-lg sm:w-96 '>
@@ -53,7 +51,7 @@ const QuizContent = () => {
           <>
             <Question randomNum={randomNum} countries={allCountries[index]} />
             {displayAnswers}
-            {!isCorrect && <Button onClickHandler={nextQuestionHandler} text='Next' />}
+            {nextQuestion && <Button onClickHandler={nextQuestionHandler} text='Next' />}
           </>
         )}
       </Card>
