@@ -48,7 +48,7 @@ const QuizContent = () => {
     <Answer key={i} i={i} allCountries={allCountries[index]} country={country.name} />
   ))
   return (
-    <div className='relative max-w-lg sm:w-96 '>
+    <div className='relative max-w-lg sm:w-96'>
       <h1 className='text-2xl sm:text-4xl text-gray-100 font-bold mb-3'>COUNTRY QUIZ</h1>
       <Image image='adventure' />
       <Card>
