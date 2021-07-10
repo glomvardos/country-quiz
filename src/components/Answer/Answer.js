@@ -22,11 +22,13 @@ const Answer = ({ i, country, allCountries }) => {
     }
     if (allCountries.name !== country) {
       setIsWrong(true)
-      dispatch(quizActions.setWrongAnswer())
+      // dispatch(quizActions.setWrongAnswer())
     }
     dispatch(quizActions.setIsAnswered())
     dispatch(quizActions.setNextQuestion())
   }
+
+  console.log(index)
 
   const showCorrectAnswer = () => {
     if (!isCorrect && allCountries.name === country) {

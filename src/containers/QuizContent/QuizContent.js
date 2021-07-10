@@ -33,15 +33,15 @@ const QuizContent = () => {
   console.log(selectedCountries)
 
   const nextQuestionHandler = () => {
+    if (wrongAnswer || index === allCountries.length - 1) {
+      dispatch(quizActions.setShowResults())
+    }
+
     dispatch(countriesActions.arrayIndexHanlder())
     dispatch(countriesActions.nextCountryHandler())
     dispatch(quizActions.setRandomQuestion())
     dispatch(quizActions.setNextQuestion())
     dispatch(quizActions.setIsAnswered())
-
-    if (wrongAnswer) {
-      dispatch(quizActions.setShowResults())
-    }
   }
 
   const displayAnswers = selectedCountries.map((country, i) => (

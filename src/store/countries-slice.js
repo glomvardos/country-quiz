@@ -22,7 +22,9 @@ const countriesSlice = createSlice({
       state.countries = randomCountries
     },
     arrayIndexHanlder(state) {
-      state.countriesArrayIndex++
+      if (state.countriesArrayIndex !== state.countries.length - 1) {
+        state.countriesArrayIndex++
+      }
     },
     nextCountryHandler(state) {
       const currentCountry = state.countries[state.countriesArrayIndex]
