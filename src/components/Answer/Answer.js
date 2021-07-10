@@ -13,21 +13,19 @@ const Answer = ({ i, country, allCountries }) => {
   useEffect(() => {
     setIsCorrect(false)
     setIsWrong(false)
-  }, [index, dispatch])
+  }, [index])
 
   const correctAnswerHandler = () => {
     if (allCountries.name === country) {
       setIsCorrect(true)
-      dispatch(quizActions.setIsAnswered())
-      dispatch(quizActions.setNextQuestion())
       dispatch(quizActions.setScore())
     }
     if (allCountries.name !== country) {
       setIsWrong(true)
-      dispatch(quizActions.setIsAnswered())
-      dispatch(quizActions.setNextQuestion())
-      dispatch(quizActions.resetScore())
+      dispatch(quizActions.setWrongAnswer())
     }
+    dispatch(quizActions.setIsAnswered())
+    dispatch(quizActions.setNextQuestion())
   }
 
   const showCorrectAnswer = () => {

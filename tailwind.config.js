@@ -8,6 +8,7 @@ module.exports = {
       }),
       colors: {
         blueTitle: '#2F527B',
+        resultsTitle: '#1D355D',
         lightPurple: '#6066D0',
         orangeHover: '#F9A826',
         correctAnswer: '#60BF88',

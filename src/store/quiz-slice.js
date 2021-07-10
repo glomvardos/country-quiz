@@ -7,6 +7,8 @@ const quizSlice = createSlice({
     nextQuestion: false,
     isAnswered: false,
     score: 0,
+    showResults: false,
+    wrongAnswer: false,
   },
   reducers: {
     setRandomQuestion(state) {
@@ -20,10 +22,15 @@ const quizSlice = createSlice({
     },
     setScore(state) {
       state.score++
-      console.log(state.score)
     },
     resetScore(state) {
       state.score = 0
+    },
+    setShowResults(state) {
+      state.showResults = !state.showResults
+    },
+    setWrongAnswer(state) {
+      state.wrongAnswer = !state.wrongAnswer
     },
   },
 })

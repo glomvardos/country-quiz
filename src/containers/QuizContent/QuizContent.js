@@ -19,6 +19,7 @@ const QuizContent = () => {
 
   const randomNum = useSelector(state => state.quiz.randomQuestion)
   const nextQuestion = useSelector(state => state.quiz.nextQuestion)
+  const wrongAnswer = useSelector(state => state.quiz.wrongAnswer)
 
   const allCountries = useSelector(state => state.countries.countries)
   const selectedCountries = useSelector(state => state.countries.selectedCountries)
@@ -37,6 +38,10 @@ const QuizContent = () => {
     dispatch(quizActions.setRandomQuestion())
     dispatch(quizActions.setNextQuestion())
     dispatch(quizActions.setIsAnswered())
+
+    if (wrongAnswer) {
+      dispatch(quizActions.setShowResults())
+    }
   }
 
   const displayAnswers = selectedCountries.map((country, i) => (
@@ -45,7 +50,7 @@ const QuizContent = () => {
   return (
     <div className='relative max-w-lg sm:w-96 '>
       <h1 className='text-2xl sm:text-4xl text-gray-100 font-bold mb-3'>COUNTRY QUIZ</h1>
-      <Image />
+      <Image image='adventure' />
       <Card>
         {isLoading && <Spinner />}
         {!isLoading && (
