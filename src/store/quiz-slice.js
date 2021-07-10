@@ -5,6 +5,7 @@ const quizSlice = createSlice({
   initialState: {
     randomQuestion: Math.floor(Math.random() * 2),
     nextQuestion: false,
+    isAnswered: false,
     score: 0,
   },
   reducers: {
@@ -13,6 +14,16 @@ const quizSlice = createSlice({
     },
     setNextQuestion(state) {
       state.nextQuestion = !state.nextQuestion
+    },
+    setIsAnswered(state) {
+      state.isAnswered = !state.isAnswered
+    },
+    setScore(state) {
+      state.score++
+      console.log(state.score)
+    },
+    resetScore(state) {
+      state.score = 0
     },
   },
 })

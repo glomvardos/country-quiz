@@ -11,6 +11,7 @@ module.exports = {
         lightPurple: '#6066D0',
         orangeHover: '#F9A826',
         correctAnswer: '#60BF88',
+        wrongAnswer: '#EA8282',
       },
       width: {
         96: '29rem',

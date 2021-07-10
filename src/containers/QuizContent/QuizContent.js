@@ -36,6 +36,7 @@ const QuizContent = () => {
     dispatch(countriesActions.nextCountryHandler())
     dispatch(quizActions.setRandomQuestion())
     dispatch(quizActions.setNextQuestion())
+    dispatch(quizActions.setIsAnswered())
   }
 
   const displayAnswers = selectedCountries.map((country, i) => (

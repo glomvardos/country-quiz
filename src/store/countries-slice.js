@@ -25,12 +25,12 @@ const countriesSlice = createSlice({
       state.countriesArrayIndex++
     },
     nextCountryHandler(state) {
+      const currentCountry = state.countries[state.countriesArrayIndex]
       const copiedCountries = state.countries.filter(
-        country => state.countries[state.countriesArrayIndex].name !== country.name
+        country => currentCountry.name !== country.name
       )
 
       const randomCountries = shuffleArray(copiedCountries).slice(0, 3)
-      const currentCountry = state.countries[state.countriesArrayIndex]
       const newSelectedCountries = shuffleArray([currentCountry, ...randomCountries])
 
       state.selectedCountries = newSelectedCountries
