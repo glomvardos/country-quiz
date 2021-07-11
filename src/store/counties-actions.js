@@ -4,12 +4,16 @@ import { loadingActions } from './loading-slice'
 export const fetchCountries = () => {
   return async dispatch => {
     try {
-      const response = await fetch('https://restcountries.eu/rest/v2/region/europe')
+      const responseEu = await fetch('https://restcountries.eu/rest/v2/region/europe')
+      const responseAmerica = await fetch('https://restcountries.eu/rest/v2/region/americas')
 
-      if (!response.ok) {
+      if (!responseEu.ok && !responseAmerica.ok) {
         throw new Error('Something went wrong.')
       }
-      const data = await response.json()
+      const dataEu = await responseEu.json()
+      const dataAmerica = await responseAmerica.json()
+
+      const data = [...dataEu, ...dataAmerica]
 
       dispatch(countriesActions.getCountries(data))
       dispatch(loadingActions.setIsNotLoading())

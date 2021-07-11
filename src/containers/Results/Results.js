@@ -24,7 +24,7 @@ const Results = () => {
   if (score === 0 || score > 1) answersText = 'answers'
 
   return (
-    <div className='w-80 sm:w-96  '>
+    <div className='w-80 sm:w-96 my-auto'>
       <h1 className='text-2xl sm:text-4xl text-gray-100 font-bold mb-3'>COUNTRY QUIZ</h1>
       <Card>
         <Image image='winner' />

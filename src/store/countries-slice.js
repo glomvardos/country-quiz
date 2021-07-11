@@ -11,11 +11,13 @@ const countriesSlice = createSlice({
   reducers: {
     getCountries(state, actions) {
       const allCountries = actions.payload
-      const transformedCountries = allCountries.map(country => ({
-        name: country.name,
-        capital: country.capital,
-        flag: country.flag,
-      }))
+      const transformedCountries = allCountries
+        .filter(country => country.name !== 'United States Minor Outlying Islands')
+        .map(country => ({
+          name: country.name,
+          capital: country.capital,
+          flag: country.flag,
+        }))
       const randomCountries = shuffleArray(transformedCountries)
 
       state.selectedCountries = shuffleArray(randomCountries.slice(0, 4))
