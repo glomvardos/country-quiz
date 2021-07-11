@@ -7,7 +7,7 @@ export const fetchCountries = () => {
       const responseEu = await fetch('https://restcountries.eu/rest/v2/region/europe')
       const responseAmerica = await fetch('https://restcountries.eu/rest/v2/region/americas')
 
-      if (!responseEu.ok && !responseAmerica.ok) {
+      if (!responseEu.ok || !responseAmerica.ok) {
         throw new Error('Something went wrong.')
       }
       const dataEu = await responseEu.json()
