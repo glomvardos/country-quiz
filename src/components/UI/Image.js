@@ -16,7 +16,7 @@ const Image = ({ image }) => {
 
   return (
     <div className={classes}>
-      <img src={srcImage} alt='' className='w-full w-' />
+      <img src={srcImage} alt='' className='w-full' />
     </div>
   )
 }
