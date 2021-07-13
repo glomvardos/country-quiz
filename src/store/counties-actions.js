@@ -8,20 +8,19 @@ export const fetchCountries = () => {
       'https://restcountries.eu/rest/v2/region/americas',
     ]
 
-    const [countriesEu, countriesAmerica] = await Promise.all(
-      urls.map(url =>
-        fetch(url)
-          .then(res => {
-            if (!res.ok) throw new Error('Something went wrong!')
-            return res.json()
-          })
-          .catch(err => dispatch(loadingActions.setIsNotLoading()))
+    try {
+      const [countriesEu, countriesAmerica] = await Promise.all(
+        urls.map(async url => {
+          const response = await fetch(url)
+          if (!response.ok) throw new Error('Something went wrong!')
+          return response.json()
+        })
       )
-    )
-
-    const data = [...countriesEu, ...countriesAmerica]
-
-    dispatch(countriesActions.getCountries(data))
-    dispatch(loadingActions.setIsNotLoading())
+      const data = [...countriesEu, ...countriesAmerica]
+      dispatch(countriesActions.getCountries(data))
+      dispatch(loadingActions.setIsNotLoading())
+    } catch (err) {
+      dispatch(loadingActions.setIsNotLoading())
+    }
   }
 }
