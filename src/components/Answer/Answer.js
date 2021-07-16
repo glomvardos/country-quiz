@@ -13,10 +13,10 @@ const Answer = ({ i, country, allCountries }) => {
   const index = useSelector(state => state.countries.countriesArrayIndex)
   const isAnswered = useSelector(state => state.quiz.isAnswered)
 
-  useEffect(() => {
-    setIsCorrect(false)
-    setIsWrong(false)
-  }, [index])
+  // useEffect(() => {
+  //   setIsCorrect(false)
+  //   setIsWrong(false)
+  // }, [index])
 
   const correctAnswerHandler = () => {
     if (allCountries.name === country) {
