@@ -26,8 +26,10 @@ const QuizContent = () => {
   const index = useSelector(state => state.countries.countriesArrayIndex)
 
   useEffect(() => {
-    dispatch(fetchCountries())
-  }, [dispatch])
+    if (isLoading) {
+      dispatch(fetchCountries())
+    }
+  }, [dispatch, isLoading])
 
   const nextQuestionHandler = () => {
     if (wrongAnswer || index === allCountries.length - 1) {
