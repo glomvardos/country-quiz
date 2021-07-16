@@ -40,9 +40,7 @@ const countriesSlice = createSlice({
       state.selectedCountries = newSelectedCountries
     },
     resetCountriesAndIndex(state) {
-      const randomCountries = shuffleArray(state.countries)
-      state.selectedCountries = shuffleArray(randomCountries.slice(0, 4))
-      state.countries = randomCountries
+      shuffleArray(state.countries)
       state.countriesArrayIndex = 0
     },
   },
