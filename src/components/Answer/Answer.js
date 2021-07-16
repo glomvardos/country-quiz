@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { quizActions } from '../../store/quiz-slice'
 
@@ -10,7 +10,7 @@ const Answer = ({ i, country, allCountries }) => {
   const [isWrong, setIsWrong] = useState(false)
 
   const dispatch = useDispatch()
-  const index = useSelector(state => state.countries.countriesArrayIndex)
+  // const index = useSelector(state => state.countries.countriesArrayIndex)
   const isAnswered = useSelector(state => state.quiz.isAnswered)
 
   // useEffect(() => {
