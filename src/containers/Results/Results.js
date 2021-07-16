@@ -13,10 +13,10 @@ const Results = () => {
   const score = useSelector(state => state.quiz.score)
 
   const resetGameHandler = () => {
-    dispatch(quizActions.resetScore())
-    dispatch(quizActions.setShowResults())
-    dispatch(quizActions.setWrongAnswer())
     dispatch(countriesActions.resetCountriesAndIndex())
+    dispatch(quizActions.resetScore())
+    dispatch(quizActions.setWrongAnswer())
+    dispatch(quizActions.setShowResults())
   }
 
   let answersText
