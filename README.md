@@ -67,7 +67,7 @@ $ git clone https://github.com/glomvardos/country-quiz
 $ npm install
 
 # Run the app
-$ npm start
+$ npm run start
 ```
 
 ## Contact
