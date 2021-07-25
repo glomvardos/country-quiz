@@ -65,7 +65,7 @@ const Answer = ({ i, country, allCountries }) => {
       className={isCorrect ? correctAnswerClasses : isWrong ? wrongAnswerClasses : defaultClasses}
     >
       <div className='flex items-center'>
-        <span className='text-xl mr-8 sm:text-2xl sm:mr-11'>{letter}</span>{' '}
+        <span className='text-xl mr-8 sm:text-2xl sm:mr-11'>{letter}</span>
         <div className='text-lg sm:text-xl'>
           <span>{country}</span>
         </div>
