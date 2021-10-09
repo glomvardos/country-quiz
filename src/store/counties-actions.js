@@ -4,8 +4,8 @@ import { loadingActions } from './loading-slice'
 export const fetchCountries = () => {
   return async dispatch => {
     const urls = [
-      'https://restcountries.eu/rest/v2/region/europe',
-      'https://restcountries.eu/rest/v2/region/americas',
+      'https://restcountries.com/v3.1/region/europe',
+      'https://restcountries.com/v3.1/region/america',
     ]
 
     try {
@@ -17,6 +17,7 @@ export const fetchCountries = () => {
         })
       )
       const data = [...countriesEu, ...countriesAmerica]
+
       dispatch(countriesActions.getCountries(data))
       dispatch(loadingActions.setIsNotLoading())
     } catch (err) {

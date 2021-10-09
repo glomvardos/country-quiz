@@ -4,7 +4,7 @@ const Question = ({ randomNum, countries }) => {
   if (randomNum === 0) {
     return (
       <h2 className='max-w-sm sm:w-80 font-bold text-xl my-5 text-blueTitle sm:text-2xl'>
-        {capital} is the capital of
+        {capital[0]} is the capital of
       </h2>
     )
   }
